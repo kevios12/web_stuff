@@ -8,7 +8,7 @@ export default defineConfig({
     resolve: {
         alias: {
           '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
-          '~jquery': resolve(dirname, 'node_modules/jquery')
+          '~jquery': resolve(__dirname, 'node_modules/jquery')
         }
       },
     server: {
