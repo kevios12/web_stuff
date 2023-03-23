@@ -1,5 +1,3 @@
-// import our scss
-import '../scss/style.scss'
 //import all Bootstrap
 import * as bootstrap from 'bootstrap'
 import $ from 'jquery';
@@ -19,5 +17,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 $(document).ready(function(){
   $("button").click(function(){
     $(".to-top").toggle();
+  });
+});
+
+//loading Page
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+  loader.classList.add("loader--hidden");
+  loader.addEventListener("transitionend", () => {
+    document.body.removeChild(loader);
   });
 });
