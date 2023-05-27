@@ -1,4 +1,6 @@
-//import all Bootstrap
+// Import our custom CSS
+import '../scss/style.scss';
+// import all Bootstrap
 import * as bootstrap from 'bootstrap'
 import $ from 'jquery';
 window.$ = $;
@@ -18,15 +20,14 @@ $(document).ready(function(){
   $("button").click(function(){
     $(".to-top").toggle();
   });
+  
 });
 
 //loading Page
-window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader");
-  loader.classList.add("loader--hidden");
-  loader.addEventListener("transitionend", () => {
-    while (loader.hasChildNodes()) {
-      loader.removeChild(loader.firstChild);
-    }
+$(window).on('load',function()  {
+  const loader = $('.loader');
+  loader.addClass('loader--hidden');
+    loader.on('transitionend',function () {
+      loader.remove(loader.firstChild);
   });
 });

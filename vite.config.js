@@ -20,7 +20,34 @@ export default defineConfig({
         outDir: '../dist',
         rollupOptions: {
             input: {
-                jquery: resolve(__dirname, "./node_modules/jquery/dist/jquery.js"),
-            }
+              index: resolve(__dirname, "./src/index.html"),
+              jquery: resolve(__dirname, "./node_modules/jquery/dist/jquery")
+            },
+            output: {
+              entryFileNames: "assets/js/[name].js",
+              assetFileNames: ({ name }) => {
+                  if (/\.webp$/.test(name ?? '')) {
+                      return 'assets/images/[name]-[hash][extname]';
+                  }
+
+                  if (/\.(svg|gif|jpe?g|png)$/.test(name ?? '')) {
+                      return 'assets/images/[name][extname]';
+                  }
+
+                  if (/\.css$/.test(name ?? '')) {
+                      return 'assets/css/[name][extname]';
+                  }
+
+                  if (/\.ttf$/.test(name ?? '')) {
+                      return 'assets/fonts/[name][extname]';
+                  }
+
+                  if (/\.mp4$/.test(name ?? '')) {
+                      return 'assets/media/video/[name][extname]';
+                  }
+
+                  return 'assets/[name]-[hash][extname]';
+              },
+            },
     }
 }})

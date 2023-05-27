@@ -11,10 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "host": "vite --host"
   },
+  "homepage": "https://kevios12.github.io",
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "^1.0.3",
     "jquery": "^3.6.4",
-    "purgecss": "^5.0.0",
     "sass": "^1.59.3",
     "vite": "^4.2.0"
   },
